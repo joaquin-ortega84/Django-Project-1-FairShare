@@ -1,0 +1,59 @@
+/* Set general styles */
+body {
+  background-color: #003046;
+  color: #FDF0D5;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+.messages {
+  color: #003046;
+  width: 90%;
+  height: fit-content;
+  margin: auto;
+  background-color: rgb(238, 134, 134);
+}
+
+fieldset {
+  background-color: #FDF0D5;
+  color: #003046;
+  margin: 0;
+  padding: 0px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+.form-control {
+  background-color: #ebdec5;
+  border-bottom: solid 2px #003046 !important;
+}
+
+.register-button {
+  background-color: #669BBC;
+  width: 50%;
+  height: 60px;
+  border-radius: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #FDF0D5;
+  border: none;
+}
+
+.first-area {
+  height: 20vh;
+}
+
+/* Apply custom styles for .form-area and .form-control */
+.form-area {
+  height: 90vh;
+  background-color: #FDF0D5;
+  border-top-left-radius: 100%;
+  border-top-right-radius: 100%;
+}
+
+/* Optional: Remove Bootstrap's form-control border */
+.form-area .form-control {
+  border: none;
+}

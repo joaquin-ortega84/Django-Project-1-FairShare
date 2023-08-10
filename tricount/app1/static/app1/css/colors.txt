@@ -1,0 +1,8 @@
+darkblue
+#003046
+
+cream
+#FDF0D5
+
+bluey
+#669BBC

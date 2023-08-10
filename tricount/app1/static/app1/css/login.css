@@ -1,0 +1,49 @@
+.body {
+  background-color: #003046;
+  height: 100vh;
+  color: #FDF0D5;
+  font-family: 'Poppins', sans-serif;
+}
+
+.h1-login {
+  color: #FDF0D5;
+  font-weight: bold;
+  font-size: 40px;
+  color: #FDF0D5;
+}
+
+.back-arrow .material-symbols-outlined {
+  color: #FDF0D5;
+  margin-left: 100%;
+}
+
+.first-area {
+  height: 20vh;
+}
+
+.second-area {
+  background-color: #FDF0D5;
+  height: 80vh;
+  color: #003046;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+.form-control {
+  border: none;
+  border-bottom: solid 2px #003046;
+  background-color: #ebdec5; /* Change the background color here */
+  color: #003046; /* Change the text color here */
+  margin-bottom: 3%;
+}
+
+button {
+  background-color: #669BBC;
+  width: 50%;
+  height: 60px;
+  border-radius: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #FDF0D5;
+  border: none;
+}

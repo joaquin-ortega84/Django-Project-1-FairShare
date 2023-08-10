@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FairShare -  Home</title>
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" type="text/css" href="{% static 'app1/css/home.css' %}"/>
+
+</head>
+<body class="body">
+  <!-- Your HTML content here -->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><b>FairShare</b></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+        {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" onclick="location.href='{% url 'logout' %}'">Logout</a>
+          </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" onclick="location.href='{% url 'login' %}'">Login</a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link" onclick="location.href='{% url 'register' %}'">Register</a>
+          </li>
+        {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="background-img"></div>
+  <h1 class="h1-home-page">FairShare</h1>
+  <h4>Track, split and settle shared expenses seamlessly</h4>
+
+  <div class="button-div">
+    {% if user.is_authenticated %}
+      <button class="button login" onclick="location.href='{% url 'main' %}'">Home</button>
+    {% else %}
+      <button class="button login" onclick="location.href='{% url 'login' %}'">Login</button>
+      <button class="button signup" onclick="location.href='{% url 'register' %}'">Sign up</button>
+    {% endif %}
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

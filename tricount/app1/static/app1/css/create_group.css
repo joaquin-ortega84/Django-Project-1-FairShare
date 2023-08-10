@@ -1,0 +1,44 @@
+.navbar {
+  background-color: #FDF0D5;
+}
+
+
+.body {
+  background-color: #003046;
+  color: #FDF0D5;
+}
+
+.form-control {
+  background-color: #FDF0D5 !important;
+}
+
+.new-expense button {
+  width: 25vh;
+  height: 6vh;
+  border-radius: 15px;
+  font-size: large;
+  font-weight: bold;
+  border: none;
+}
+
+.btn-secondary {
+  background-color: white;
+  color: #003046;
+  border-radius: 10px;
+}
+
+.btn-validate {
+  background-color: #669BBC;  ;
+  width: 40%;
+  height: 50px;
+  border-radius: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #FDF0D5;
+  border: none;
+  margin-top: 3%;
+}
+
+.participants-container input {
+  background-color: #FDF0D5;
+}

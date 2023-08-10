@@ -1,0 +1,157 @@
+{% load static %}
+{% load widget_tweaks %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Group</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'app1/css/create_group.css' %}">
+</head>
+<body class="body">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" onclick="href='{% url 'main' %}'"><b>FairShare</b></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" onclick="location.href='{% url 'main' %}'">Home</a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link" onclick="location.href='{% url 'logout' %}'">Logout</a>
+          </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" onclick="location.href='{% url 'login' %}'">Login</a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link" onclick="location.href='{% url 'register' %}'">Register</a>
+          </li>
+        {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+    <div class="container mt-5">
+        <h1 class="text-center fw-bold mb-3">Create New Group</h1>
+        <div class="mx-0">
+          {% if messages %}
+            {% for message in messages %}
+            <p{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>
+                {{ message }}
+                <span class="close-btn" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </span>
+              </p>
+            {% endfor %}
+          {% endif %}
+        </div>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label class="form-label" for="group_name">Group Name:</label>
+                <input type="text" class="form-control" id="group_name" name="group_name" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="description">Description:</label>
+                <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="category">Category:</label>
+                <input type="text" class="form-control" id="category" name="category" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label" for="currency">Currency:</label>
+              <select class="form-control" id="currency" name="currency" required>
+                  {% for code, name in form.currency.field.choices %}
+                      <option value="{{ code }}">{{ name }}</option>
+                  {% endfor %}
+              </select>
+          </div>
+
+
+            <div class="mb-3">
+              <label class="form-label" for="participant_name">Participant Names:</label>
+              <div id="participants-container">
+                  <div class="input-group mb-2">
+                      <input type="text" class="form-control" name="participants" placeholder="Participant name" required>
+                      <button type="button" class="btn btn-outline-secondary btn-remove" title="Remove Participant">-</button>
+                      <button type="button" class="btn btn-outline-secondary btn-edit" title="Edit Participant">✎</button>
+                  </div>
+              </div>
+              <button type="button" class="btn btn-secondary btn-sm mt-2 justicy-content-center" id="add-participant">Add Participant</button>
+          </div>
+            <div class="text-center">
+            <button type="submit" class="btn-validate text-center">Create Group</button>
+          </div>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          const addParticipantButton = document.getElementById("add-participant");
+          const participantsContainer = document.getElementById("participants-container");
+
+          function createParticipantInput(name = "") {
+              const inputGroup = document.createElement("div");
+              inputGroup.className = "input-group mb-2";
+
+              const input = document.createElement("input");
+              input.type = "text";
+              input.className = "form-control";
+              input.name = "participants";
+              input.value = name;
+              input.placeholder = "Participant name";
+              input.required = true;
+
+              const removeButton = document.createElement("button");
+              removeButton.type = "button";
+              removeButton.className = "btn btn-outline-secondary btn-remove";
+              removeButton.title = "Remove Participant";
+              removeButton.textContent = "-";
+              removeButton.addEventListener("click", function () {
+                  participantsContainer.removeChild(inputGroup);
+              });
+
+              const editButton = document.createElement("button");
+              editButton.type = "button";
+              editButton.className = "btn btn-outline-secondary btn-edit";
+              editButton.title = "Edit Participant";
+              editButton.textContent = "✎";
+              editButton.addEventListener("click", function () {
+                  input.focus();
+              });
+
+              inputGroup.appendChild(input);
+              inputGroup.appendChild(removeButton);
+              inputGroup.appendChild(editButton);
+
+              return inputGroup;
+          }
+
+          addParticipantButton.addEventListener("click", function () {
+              participantsContainer.appendChild(createParticipantInput());
+          });
+
+          // Initialize existing participants (if any)
+          const existingParticipants = document.querySelectorAll(".existing-participant");
+          existingParticipants.forEach(function (participant) {
+              const name = participant.textContent.trim();
+              participantsContainer.appendChild(createParticipantInput(name));
+          });
+      });
+  </script>
+  </body>
+</html>

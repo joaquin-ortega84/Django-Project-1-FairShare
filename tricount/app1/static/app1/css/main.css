@@ -1,0 +1,96 @@
+.navbar {
+  background-color: #FDF0D5;
+}
+
+.body {
+  background-color: #003046;
+  color: #FDF0D5;
+}
+
+.user-card {
+  background-color: #FDF0D5;
+  color: #003046;
+  box-sizing: border-box;
+  margin-top: 5%;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+/* Custom styles for the table */
+.custom-table {
+  width: 90%;
+  margin: auto;
+  margin-top: 5%;
+}
+
+
+/* Styles for table header cells */
+.custom-table th {
+  background-color: #003049;
+  padding: 10px;
+  text-align: left;
+  font-size: 18px;
+}
+
+/* Styles for table body cells */
+.custom-table td {
+  padding: 10px;
+  /* border-bottom: 1px solid #ddd; */
+  font-weight: medium;
+  font-size: 16px;
+}
+
+/* Alternate row background color for better readability */
+
+/* Hover effect for rows */
+.custom-table tbody tr:active {
+  background-color: #669BBC;
+}
+
+
+.navigation .icon {
+  text-decoration: none;
+  color: #003049;
+}
+
+.navigation .icon .material-symbols-outlined {
+  font-size: 40px;
+}
+
+.navigation .third-icon .material-symbols-outlined {
+  font-size: 90px;
+  margin-bottom: 50%;
+  background-color: #FDF0D5;
+  color: #003049;
+  border-radius: 100%;
+}
+
+.table-div {
+  height: calc(100vh - 85px); /* Adjust the height to leave space for the navigation bar */
+  overflow: auto; /* Add this to enable overflow scrolling if the content exceeds the height */
+}
+
+.navigation {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20px;
+  width: 90%;
+  max-width: 95%;
+  background-color: #FDF0D5;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 65px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 999; /* Ensure the navigation bar is on top of the content */
+}
+
+.navbar {
+  background-color: #FDF0D5;
+}
+
+.navbar-brand {
+  color: #003046;
+}

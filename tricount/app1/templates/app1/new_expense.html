@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Expense</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" onclick="href='{% url 'main' %}'"><b>FairShare</b></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" onclick="location.href='{% url 'main' %}'">Home</a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link" onclick="location.href='{% url 'logout' %}'">Logout</a>
+          </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" onclick="location.href='{% url 'login' %}'">Login</a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link" onclick="location.href='{% url 'register' %}'">Register</a>
+          </li>
+        {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+    <div class="container mt-5">
+        <h2>New Expense</h2>
+        <form method="post">
+          {% csrf_token %}
+
+          <div class="mb-3">
+              <label class="form-label" for="expense_name">Expense Name:</label>
+              <input type="text" class="form-control" id="expense_name" name="expense_name" required>
+          </div>
+
+          <div class="mb-3">
+              <label class="form-label" for="date_created">Date Created:</label>
+              <input type="date" class="form-control" id="date_created" name="date_created" required>
+          </div>
+
+          <div class="mb-3">
+              <label class="form-label" for="amount">Amount:</label>
+              <input type="number" class="form-control" id="amount" name="amount" required>
+          </div>
+
+          <div class="mb-3">
+              <label class="form-label" for="paid_by">Paid By:</label>
+              <select name="paid_by" class="form-control">
+                  {% for user in users %}
+                      <option value="{{ user.id }}">{{ user.username }}</option>
+                  {% endfor %}
+              </select>
+          </div>
+
+          <div class="mb-3">
+              <label class="form-label" for="users_paid_for">Paid For:</label>
+              <select name="users_paid_for" class="form-control" multiple>
+                  {% for user in users %}
+                      <option value="{{ user.id }}">{{ user.username }}</option>
+                  {% endfor %}
+              </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Create Expense</button>
+      </form>
+
+    </div>
+
+</body>
+</html>

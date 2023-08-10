@@ -1,0 +1,22 @@
+.logout-content {
+  padding: 15px;
+  margin: 7%;
+  margin-top: 20%;
+  background-color: #003046;
+  color: #FDF0D5;
+
+}
+
+.body {
+  background-color: #003046;
+  color: #FDF0D5;
+}
+
+.navbar{
+  background-color: #FDF0D5;
+}
+
+.navbar-brand {
+  color: #003046;
+  font-weight: medium;
+}

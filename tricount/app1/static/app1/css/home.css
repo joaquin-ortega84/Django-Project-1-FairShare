@@ -1,0 +1,59 @@
+.body {
+  background-color: aliceblue;
+  background-image: url('../images/home_img.png');
+  background-repeat: repeat;
+  font-family: 'Poppins', sans-serif;
+  color: #FDF0D5;
+}
+
+.h1-home-page {
+  font-weight: bold;
+  font-size: 40px;
+  color: #FDF0D5;
+  text-align: center;
+  margin-top: 15%;
+}
+
+h4 {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  color: #FDF0D5;
+  text-align: center;
+  margin-bottom: 40%;
+  padding:3%;
+}
+
+.button-div {
+  align-items: center;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin-bottom: 20%;
+}
+
+button {
+  background-color: #669BBC;  ;
+  width: 40%;
+  height: 45px;
+  border-radius: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #FDF0D5;
+  border: none;
+}
+
+.signup {
+  background-color: #FDF0D5;
+  color: #003046;
+  margin-left: 2%;
+}
+
+.navbar {
+  background-color: #FDF0D5;
+}

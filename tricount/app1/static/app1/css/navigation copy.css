@@ -1,0 +1,41 @@
+
+.navigation .icon {
+  text-decoration: none;
+  color: #003049;
+}
+
+.navigation .icon .material-symbols-outlined {
+  font-size: 40px;
+}
+
+.navigation .third-icon .material-symbols-outlined {
+  font-size: 90px;
+  margin-bottom: 50%;
+  background-color: #FDF0D5;
+  color: #003049;
+  border-radius: 100%;
+}
+
+.navigation {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20px;
+  width: 90%;
+  max-width: 95%;
+  background-color: #FDF0D5;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 65px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+  background-color: #FDF0D5;
+}
+
+.navbar-brand {
+  color: #003046;
+}

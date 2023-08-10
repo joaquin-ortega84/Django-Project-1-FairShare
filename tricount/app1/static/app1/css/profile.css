@@ -1,0 +1,110 @@
+.navbar {
+  background-color: #FDF0D5;
+}
+
+.body {
+  background-color: #003046;
+  color: #FDF0D5;
+
+}
+
+.user-card {
+  color: #003049;
+  background-color: #FDF0D5;
+  box-sizing: border-box;
+  margin-top: 5%;
+  padding: 20px;
+  border-radius: 15px;
+  /* border: 2px solid #669BBC; */
+}
+
+
+/* Style for the email input */
+.form-control {
+  background-color: #FDF0D5;
+  color: #003046;
+  border: none;
+  border: solid 1px #003049;
+}
+
+
+ul {
+  list-style: none;
+}
+.alert-success {
+  padding: 10px;
+  height: min-content;
+  margin: 5%;
+  width: fit-content;
+  background-color: none;
+  color: green;
+  text-decoration: none;
+}
+
+.form-div {
+  /* border: solid 2px #669BBC; */
+  margin: 4px;
+  border-radius: 15px;
+  color: #FDF0D5;
+}
+
+.image-container {
+  max-width: 100%;
+  max-height: 300px; /* Set a reasonable maximum height for the image */
+  overflow: hidden;
+}
+
+.button {
+  background-color: #669BBC;
+  color: #FDF0D5;
+  font-weight: bold;
+  width: 125px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+}
+
+.close-btn {
+  padding-left: 50px;
+}
+
+.navigation .icon {
+  text-decoration: none;
+  color: #003049;
+}
+
+.navigation .icon .material-symbols-outlined {
+  font-size: 40px;
+}
+
+.navigation .third-icon .material-symbols-outlined {
+  font-size: 90px;
+  margin-bottom: 50%;
+  background-color: #FDF0D5;
+  color: #003049;
+  border-radius: 100%;
+}
+
+.navigation {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20px;
+  width: 90%;
+  max-width: 95%;
+  background-color: #FDF0D5;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 65px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+  background-color: #FDF0D5;
+}
+
+.navbar-brand {
+  color: #003046;
+}

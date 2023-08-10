@@ -1,0 +1,67 @@
+{% load static %}
+{% load widget_tweaks %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log in</title>
+  <!-- Add the Bootstrap CSS link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="{% static 'app1/css/login.css' %}">
+</head>
+<body class="body">
+  <!-- First Area-->
+  <div class="first-area">
+    <div class="signup-row row pt-5 ps-5">
+      <span onclick="location.href='{% url 'home' %}'" class="material-symbols-outlined col-3 pt-2">
+        arrow_back_ios
+      </span>
+      <h1 class="h1-login col-9 ps-2">Log in</h1>
+    </div>
+  </div>
+
+  <!-- Messages -->
+  <div class="second-area">
+    <div class="form-area">
+      <form method="POST">
+        {% csrf_token %}
+          <fieldset class="p-4">
+            <!-- Manually render each form field with Widget Tweaks -->
+            <h1 class="text-center mt-2 fw-bold">Welcome!</h1>
+            <div class="messages">
+            {% if messages %}
+            <ul>
+              {% for message in messages %}
+              <li{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</li>
+              {% endfor %}
+            {% endif %}
+            </ul>
+            {% for field in form %}
+              {{ field.errors }}
+            {% endfor %}
+          </div>
+          <form method="POST">
+            {% csrf_token %}
+            <label for="username" class="mt-5">Username:</label>
+            <input name="username" value="" type="text" class="form-control" />
+            <label for="password">Password:</label>
+            <input name="password" value="" type="text" class="form-control" />
+            <div class="d-grid">
+              <button class="mt-5 m-auto" type="submit">Log in</button>
+            </div>
+        </form>
+        <div class="pt-3 text-center">
+          <small class="text-muted">Need an account? <a onclick="location.href='{% url 'register' %}'" class="mt-2">Sign Up</a></small>
+        </div>
+      </div>
+    </div>
+
+
+  <!-- Add the Bootstrap JS and jQuery scripts -->
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>
